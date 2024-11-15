@@ -9,6 +9,9 @@ export default {
 				primary: '#00aeee',
 				secondary: '#212931',
 			},
+			fontFamily: {
+				sans: ['Noto Sans', 'sans-serif'],
+			},
 		},
 	},
 	plugins: [],
