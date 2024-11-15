@@ -3,7 +3,8 @@ import { MainDataType } from '@/utils/types'
 import { initialData } from '@/utils/initialData'
 import ProfileHeader from '@/components/ProfileHeader'
 import About from '@/components/About'
-import Collaborates from './components/Collaborates'
+import Collaborates from '@/components/Collaborates'
+import StartCollab from '@/components/StartCollab'
 
 const App = () => {
 	const [data, setData] = useState<MainDataType>(initialData)
@@ -24,6 +25,7 @@ const App = () => {
 				<ProfileHeader profile={data.profile} />
 				<About desc={data.about} />
 				<Collaborates data={data.collaborates} />
+				<StartCollab products={data.products} />
 			</div>
 		</div>
 	)
