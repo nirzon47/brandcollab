@@ -1,7 +1,8 @@
 import { ProductType } from '@/utils/types'
 import { useState } from 'react'
-import { TbCheck, TbEdit } from 'react-icons/tb'
+import { TbCheck } from 'react-icons/tb'
 import Button from './ui/Button'
+import EditButton from './ui/EditButton'
 
 const ProductCard = (props: { item: ProductType }) => {
 	const { item } = props
@@ -17,10 +18,7 @@ const ProductCard = (props: { item: ProductType }) => {
 				{editMode ? (
 					<TbCheck className='h-6 w-6 cursor-pointer text-zinc-600' />
 				) : (
-					<TbEdit
-						className='h-6 w-6 cursor-pointer text-zinc-600'
-						onClick={() => setEditMode(true)}
-					/>
+					<EditButton action={() => setEditMode(true)} />
 				)}
 			</div>
 			<div className='relative'>

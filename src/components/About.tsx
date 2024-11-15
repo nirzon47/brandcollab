@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import CardSection from './ui/CardSection'
 import Heading from './ui/Heading'
-import { TbCheck, TbEdit } from 'react-icons/tb'
+import { TbCheck } from 'react-icons/tb'
+import EditButton from './ui/EditButton'
 
 const About = (props: { desc: string }) => {
 	const [editMode, setEditMode] = useState<boolean>(false)
@@ -13,10 +14,7 @@ const About = (props: { desc: string }) => {
 				{editMode ? (
 					<TbCheck className='h-6 w-6 cursor-pointer text-zinc-600' />
 				) : (
-					<TbEdit
-						className='h-6 w-6 cursor-pointer text-zinc-600'
-						onClick={() => setEditMode(true)}
-					/>
+					<EditButton action={() => setEditMode(true)} />
 				)}
 			</div>
 			<p className='mb-4 max-w-3xl text-sm font-medium text-zinc-500'>

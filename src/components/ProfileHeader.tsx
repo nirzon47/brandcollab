@@ -1,9 +1,9 @@
 import { ProfileType } from '@/utils/types'
 import { useState } from 'react'
-import { TbEdit } from 'react-icons/tb'
 import { TbCheck } from 'react-icons/tb'
 import Heading from './ui/Heading'
 import CardSection from './ui/CardSection'
+import EditButton from './ui/EditButton'
 
 type ProfileHeaderProps = {
 	profile: ProfileType
@@ -21,10 +21,7 @@ const ProfileHeader = (props: ProfileHeaderProps) => {
 				{editMode ? (
 					<TbCheck className='h-6 w-6 cursor-pointer text-zinc-600' />
 				) : (
-					<TbEdit
-						className='h-6 w-6 cursor-pointer text-zinc-600'
-						onClick={() => setEditMode(true)}
-					/>
+					<EditButton action={() => setEditMode(true)} />
 				)}
 			</div>
 			<p className='mb-1 text-sm text-zinc-500'>{profile.desc}</p>
