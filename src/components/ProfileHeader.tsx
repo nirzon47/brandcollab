@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { TbEdit } from 'react-icons/tb'
 import { TbCheck } from 'react-icons/tb'
 import Heading from './ui/Heading'
+import CardSection from './ui/CardSection'
 
 type ProfileHeaderProps = {
 	profile: ProfileType
@@ -14,7 +15,7 @@ const ProfileHeader = (props: ProfileHeaderProps) => {
 	const [editMode, setEditMode] = useState<boolean>(false)
 
 	return (
-		<section className='rounded-2xl bg-white px-8 py-4'>
+		<CardSection>
 			<div className='mb-2 flex items-center justify-between'>
 				<Heading title={profile.name} />
 				{editMode ? (
@@ -39,7 +40,7 @@ const ProfileHeader = (props: ProfileHeaderProps) => {
 					</span>
 				))}
 			</div>
-		</section>
+		</CardSection>
 	)
 }
 
