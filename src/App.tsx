@@ -3,6 +3,7 @@ import { MainDataType } from '@/utils/types'
 import { initialData } from '@/utils/initialData'
 import ProfileHeader from '@/components/ProfileHeader'
 import About from '@/components/About'
+import Collaborates from './components/Collaborates'
 
 const App = () => {
 	const [data, setData] = useState<MainDataType>(initialData)
@@ -22,6 +23,7 @@ const App = () => {
 			<div className='mx-auto flex h-full w-full max-w-5xl flex-col gap-8'>
 				<ProfileHeader profile={data.profile} />
 				<About desc={data.about} />
+				<Collaborates data={data.collaborates} />
 			</div>
 		</div>
 	)
