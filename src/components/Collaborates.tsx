@@ -1,9 +1,36 @@
+import { useState } from 'react'
 import Button from './ui/Button'
 import CardSection from './ui/CardSection'
 import Heading from './ui/Heading'
 import { TbPlus } from 'react-icons/tb'
+import { MainDataType } from '@/utils/types'
 
-const Collaborates = (props: { data: string[] }) => {
+type CollaboratesPropType = {
+	data: string[]
+	setData: (data: MainDataType) => void
+}
+
+const Collaborates = (props: CollaboratesPropType) => {
+	const [editMode, setEditMode] = useState<boolean>(false)
+	const [inputValue, setInputValue] = useState<string>('')
+
+	const handleSaveChangesClick = () => {
+		setEditMode(false)
+
+		if (!inputValue) {
+			return
+		}
+
+		const newTags = [...props.data, inputValue]
+
+		const localData = JSON.parse(localStorage.getItem('data') as string)
+		localData.collaborates = newTags
+		localStorage.setItem('data', JSON.stringify(localData))
+
+		props.setData(localData)
+		setInputValue('')
+	}
+
 	return (
 		<CardSection>
 			<Heading title='Previous Collaborates' className='mb-4' />
@@ -11,14 +38,28 @@ const Collaborates = (props: { data: string[] }) => {
 				{props.data.map((item) => (
 					<span
 						key={item}
-						className='bg-accent flex items-center justify-center rounded-full px-4 py-1.5 text-xs text-zinc-600'
+						className='flex items-center justify-center rounded-full bg-accent px-4 py-1.5 text-xs text-zinc-600'
 					>
 						{item}
 					</span>
 				))}
-				<Button variant='secondary'>
-					<TbPlus /> Add Previous Collaborate
-				</Button>
+				{editMode && (
+					<input
+						type='text'
+						className='w-fit rounded-full bg-accent px-4 py-1.5 text-xs text-zinc-600 outline-none'
+						value={inputValue}
+						onChange={(e) => setInputValue(e.target.value)}
+					/>
+				)}
+				{!editMode ? (
+					<Button variant='secondary' onClick={() => setEditMode(true)}>
+						<TbPlus /> Add Previous Collaborate
+					</Button>
+				) : (
+					<Button variant='primary' onClick={handleSaveChangesClick}>
+						Save Changes
+					</Button>
+				)}
 			</div>
 		</CardSection>
 	)

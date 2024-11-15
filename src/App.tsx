@@ -25,7 +25,7 @@ const App = () => {
 			<div className='mx-auto flex h-full w-full max-w-5xl flex-col gap-8'>
 				<ProfileHeader profile={data.profile} setData={setData} />
 				<About desc={data.about} setData={setData} />
-				<Collaborates data={data.collaborates} />
+				<Collaborates data={data.collaborates} setData={setData} />
 				<StartCollab products={data.products} />
 				<Testimonials testimonials={data.testimonials} />
 			</div>
