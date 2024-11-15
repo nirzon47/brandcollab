@@ -21,10 +21,10 @@ const App = () => {
 	}, [])
 
 	return (
-		<div className='bg-background min-h-screen p-4 md:p-16'>
+		<div className='min-h-screen bg-background p-4 md:p-16'>
 			<div className='mx-auto flex h-full w-full max-w-5xl flex-col gap-8'>
 				<ProfileHeader profile={data.profile} setData={setData} />
-				<About desc={data.about} />
+				<About desc={data.about} setData={setData} />
 				<Collaborates data={data.collaborates} />
 				<StartCollab products={data.products} />
 				<Testimonials testimonials={data.testimonials} />
