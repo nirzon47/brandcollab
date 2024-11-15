@@ -17,6 +17,8 @@ const Button = (props: ButtonProps) => {
 				props.variant === 'secondary' && 'bg-secondary text-white',
 				props.className
 			)}
+			onClick={props.onClick}
+			disabled={props.disabled}
 		>
 			{props.children}
 		</button>
