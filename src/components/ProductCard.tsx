@@ -1,8 +1,8 @@
 import { ProductType } from '@/utils/types'
 import { useState } from 'react'
-import { TbCheck } from 'react-icons/tb'
 import Button from './ui/Button'
 import EditButton from './ui/EditButton'
+import SaveButton from './ui/SaveButton'
 
 const ProductCard = (props: { item: ProductType }) => {
 	const { item } = props
@@ -16,7 +16,7 @@ const ProductCard = (props: { item: ProductType }) => {
 					{item.name}
 				</h3>
 				{editMode ? (
-					<TbCheck className='h-6 w-6 cursor-pointer text-zinc-600' />
+					<SaveButton action={() => setEditMode(false)} />
 				) : (
 					<EditButton action={() => setEditMode(true)} />
 				)}

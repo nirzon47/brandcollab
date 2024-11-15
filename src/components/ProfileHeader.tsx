@@ -1,9 +1,9 @@
 import { ProfileType } from '@/utils/types'
 import { useState } from 'react'
-import { TbCheck } from 'react-icons/tb'
 import Heading from './ui/Heading'
 import CardSection from './ui/CardSection'
 import EditButton from './ui/EditButton'
+import SaveButton from './ui/SaveButton'
 
 type ProfileHeaderProps = {
 	profile: ProfileType
@@ -19,7 +19,7 @@ const ProfileHeader = (props: ProfileHeaderProps) => {
 			<div className='mb-2 flex items-center justify-between'>
 				<Heading title={profile.name} />
 				{editMode ? (
-					<TbCheck className='h-6 w-6 cursor-pointer text-zinc-600' />
+					<SaveButton action={() => setEditMode(false)} />
 				) : (
 					<EditButton action={() => setEditMode(true)} />
 				)}
