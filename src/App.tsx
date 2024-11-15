@@ -18,7 +18,7 @@ const App = () => {
 
 	return (
 		<div className='bg-background min-h-screen p-16'>
-			<div className='mx-auto h-full w-full max-w-5xl'>
+			<div className='mx-auto flex h-full w-full max-w-5xl flex-col gap-16'>
 				<ProfileHeader profile={data.profile} />
 			</div>
 		</div>

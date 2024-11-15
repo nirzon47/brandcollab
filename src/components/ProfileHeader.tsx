@@ -2,6 +2,7 @@ import { ProfileType } from '@/utils/types'
 import { useState } from 'react'
 import { TbEdit } from 'react-icons/tb'
 import { TbCheck } from 'react-icons/tb'
+import Heading from './ui/Heading'
 
 type ProfileHeaderProps = {
 	profile: ProfileType
@@ -15,7 +16,7 @@ const ProfileHeader = (props: ProfileHeaderProps) => {
 	return (
 		<section className='rounded-2xl bg-white px-8 py-4'>
 			<div className='mb-2 flex items-center justify-between'>
-				<h1 className='text-2xl font-semibold'>{profile.name}</h1>
+				<Heading title={profile.name} />
 				{editMode ? (
 					<TbCheck className='h-6 w-6 cursor-pointer text-zinc-600' />
 				) : (
