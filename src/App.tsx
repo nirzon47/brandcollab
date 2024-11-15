@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import ProfileHeader from './components/ProfileHeader'
-import { MainDataType } from './utils/types'
-import { initialData } from './utils/initialData'
+import { MainDataType } from '@/utils/types'
+import { initialData } from '@/utils/initialData'
+import ProfileHeader from '@/components/ProfileHeader'
+import About from '@/components/About'
 
 const App = () => {
 	const [data, setData] = useState<MainDataType>(initialData)
@@ -18,8 +19,9 @@ const App = () => {
 
 	return (
 		<div className='bg-background min-h-screen p-16'>
-			<div className='mx-auto flex h-full w-full max-w-5xl flex-col gap-16'>
+			<div className='mx-auto flex h-full w-full max-w-5xl flex-col gap-8'>
 				<ProfileHeader profile={data.profile} />
+				<About desc={data.about} />
 			</div>
 		</div>
 	)

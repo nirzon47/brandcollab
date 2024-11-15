@@ -7,4 +7,5 @@ export type ProfileType = {
 
 export type MainDataType = {
 	profile: ProfileType
+	about: string
 }
