@@ -5,12 +5,12 @@ import CardSection from './ui/CardSection'
 import EditButton from './ui/EditButton'
 import SaveButton from './ui/SaveButton'
 
-type ProfileHeaderProps = {
+type ProfileHeaderPropType = {
 	profile: ProfileType
 	setData: (data: MainDataType) => void
 }
 
-const ProfileHeader = (props: ProfileHeaderProps) => {
+const ProfileHeader = (props: ProfileHeaderPropType) => {
 	const { profile } = props
 
 	const [editMode, setEditMode] = useState<boolean>(false)
@@ -50,7 +50,7 @@ const ProfileHeader = (props: ProfileHeaderProps) => {
 				{profile.tags.map((tag) => (
 					<span
 						key={tag}
-						className='bg-accent rounded-full px-4 py-1.5 text-xs text-zinc-600'
+						className='rounded-full bg-accent px-4 py-1.5 text-xs text-zinc-600'
 					>
 						{tag}
 					</span>
@@ -58,7 +58,7 @@ const ProfileHeader = (props: ProfileHeaderProps) => {
 				{editMode && (
 					<input
 						type='text'
-						className='bg-accent w-fit rounded-full px-4 py-1.5 text-xs text-zinc-600 outline-none'
+						className='w-fit rounded-full bg-accent px-4 py-1.5 text-xs text-zinc-600 outline-none'
 						value={inputValue}
 						onChange={(e) => setInputValue(e.target.value)}
 					/>
