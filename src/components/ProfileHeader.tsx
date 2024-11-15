@@ -1,4 +1,4 @@
-import { ProfileType } from '@/utils/types'
+import { MainDataType, ProfileType } from '@/utils/types'
 import { useState } from 'react'
 import Heading from './ui/Heading'
 import CardSection from './ui/CardSection'
@@ -7,19 +7,38 @@ import SaveButton from './ui/SaveButton'
 
 type ProfileHeaderProps = {
 	profile: ProfileType
+	setData: (data: MainDataType) => void
 }
 
 const ProfileHeader = (props: ProfileHeaderProps) => {
 	const { profile } = props
 
 	const [editMode, setEditMode] = useState<boolean>(false)
+	const [inputValue, setInputValue] = useState<string>('')
+
+	const handleSaveChangesClick = () => {
+		setEditMode(false)
+
+		if (!inputValue) {
+			return
+		}
+
+		const newTags = [...profile.tags, inputValue]
+
+		const localData = JSON.parse(localStorage.getItem('data') as string)
+		localData.profile.tags = newTags
+		localStorage.setItem('data', JSON.stringify(localData))
+
+		props.setData(localData)
+		setInputValue('')
+	}
 
 	return (
 		<CardSection>
 			<div className='mb-2 flex items-center justify-between'>
 				<Heading title={profile.name} />
 				{editMode ? (
-					<SaveButton action={() => setEditMode(false)} />
+					<SaveButton action={handleSaveChangesClick} />
 				) : (
 					<EditButton action={() => setEditMode(true)} />
 				)}
@@ -36,6 +55,14 @@ const ProfileHeader = (props: ProfileHeaderProps) => {
 						{tag}
 					</span>
 				))}
+				{editMode && (
+					<input
+						type='text'
+						className='bg-accent w-fit rounded-full px-4 py-1.5 text-xs text-zinc-600 outline-none'
+						value={inputValue}
+						onChange={(e) => setInputValue(e.target.value)}
+					/>
+				)}
 			</div>
 		</CardSection>
 	)
