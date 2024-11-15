@@ -12,9 +12,16 @@ export type ProductType = {
 	desc: string
 }
 
+export type TestimonialType = {
+	name: string
+	company: string
+	desc: string
+}
+
 export type MainDataType = {
 	profile: ProfileType
 	about: string
 	collaborates: string[]
 	products: ProductType[]
+	testimonials: TestimonialType[]
 }

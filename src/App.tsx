@@ -5,6 +5,7 @@ import ProfileHeader from '@/components/ProfileHeader'
 import About from '@/components/About'
 import Collaborates from '@/components/Collaborates'
 import StartCollab from '@/components/StartCollab'
+import Testimonials from './components/Testimonials'
 
 const App = () => {
 	const [data, setData] = useState<MainDataType>(initialData)
@@ -26,6 +27,7 @@ const App = () => {
 				<About desc={data.about} />
 				<Collaborates data={data.collaborates} />
 				<StartCollab products={data.products} />
+				<Testimonials testimonials={data.testimonials} />
 			</div>
 		</div>
 	)
