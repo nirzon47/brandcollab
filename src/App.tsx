@@ -21,7 +21,7 @@ const App = () => {
 	}, [])
 
 	return (
-		<div className='bg-background min-h-screen p-16'>
+		<div className='bg-background min-h-screen p-4 md:p-16'>
 			<div className='mx-auto flex h-full w-full max-w-5xl flex-col gap-8'>
 				<ProfileHeader profile={data.profile} />
 				<About desc={data.about} />

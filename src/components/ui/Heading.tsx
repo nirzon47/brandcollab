@@ -7,7 +7,7 @@ type HeadingProps = {
 
 const Heading = (props: HeadingProps) => {
 	return (
-		<h2 className={cn('text-2xl font-semibold', props.className)}>
+		<h2 className={cn('text-xl font-semibold md:text-2xl', props.className)}>
 			{props.title}
 		</h2>
 	)

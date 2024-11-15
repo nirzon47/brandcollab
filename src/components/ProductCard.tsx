@@ -11,7 +11,9 @@ const ProductCard = (props: { item: ProductType }) => {
 	return (
 		<div key={item.name}>
 			<div className='flex items-center justify-between'>
-				<h2 className='mb-2 text-xl font-medium text-zinc-700'>{item.name}</h2>
+				<h3 className='mb-2 text-lg font-medium text-zinc-700 md:text-xl'>
+					{item.name}
+				</h3>
 				{editMode ? (
 					<TbCheck className='h-6 w-6 cursor-pointer text-zinc-600' />
 				) : (
