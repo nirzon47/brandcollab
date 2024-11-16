@@ -11,10 +11,25 @@ type StartCollabPropTypes = {
 }
 
 const StartCollab = (props: StartCollabPropTypes) => {
+	const handleAddProductClick = () => {
+		const localData = JSON.parse(localStorage.getItem('data') as string)
+
+		localData.products.push({
+			id: localData.products.length + 1,
+			name: `Product #${localData.products.length + 1}`,
+			price: 0,
+			currency: 'USD',
+			desc: '',
+		})
+
+		localStorage.setItem('data', JSON.stringify(localData))
+		props.setData(localData)
+	}
+
 	return (
 		<CardSection>
 			<Heading title='Lets Collaborate' className='mb-4' />
-			<Button variant='secondary'>
+			<Button variant='secondary' onClick={handleAddProductClick}>
 				<TbPlus /> Add product
 			</Button>
 			<div className='mt-6 flex flex-col gap-4'>
