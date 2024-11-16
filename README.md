@@ -1,50 +1,47 @@
-# React + TypeScript + Vite
+# BrandCollab
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## [Hosted Link](https://brandcollab.vercel.app/)
 
-Currently, two official plugins are available:
+This project is made to showcase my knowledge of React and Tailwind CSS as a part of BrandCollab's hiring process.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- All UI components are dynamic.
+- Responsive design.
+- Clean and minimal UI.
+- Semantic HTML.
+- Accessible.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Assumptions made
 
-- Configure the top-level `parserOptions` property like this:
+- Data is fetched from backend so a mockup with localStorage is used.
+- Profile section is not editable as it would be a security risk. Only the tags are editable.
+- Editing a product brings up a dialog with the same fields as the product.
+- Adding a product adds a new product to the list.
+- Adding a testimonial brings up a dialog with the same fields as the testimonial.
+- Few UI/UX designs were assumed since the project was a quick mockup.
 
-```js
-export default tseslint.config({
-	languageOptions: {
-		// other options...
-		parserOptions: {
-			project: ['./tsconfig.node.json', './tsconfig.app.json'],
-			tsconfigRootDir: import.meta.dirname,
-		},
-	},
-})
+## Tech Stack
+
+- Typescript
+- React
+- Radix UI
+- Tailwind CSS
+
+## Installation
+
+```bash
+bun install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+to install dependencies.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-	// Set the react version
-	settings: { react: { version: '18.3' } },
-	plugins: {
-		// Add the react plugin
-		react,
-	},
-	rules: {
-		// other rules...
-		// Enable its recommended rules
-		...react.configs.recommended.rules,
-		...react.configs['jsx-runtime'].rules,
-	},
-})
+```bash
+bun run dev
 ```
+
+to start the development server.
+
+## License
+
+This project is licensed under the MIT License.
