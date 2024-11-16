@@ -1,25 +1,36 @@
-import { ProductType } from '@/utils/types'
-import { useState } from 'react'
+import { MainDataType, ProductType } from '@/utils/types'
 import Button from './ui/Button'
-import EditButton from './ui/EditButton'
-import SaveButton from './ui/SaveButton'
+import { Dialog, DialogTrigger } from './ui/Dialog'
+import { TbEdit } from 'react-icons/tb'
+import ProductDialog from './ProductDialog'
+import { useState } from 'react'
 
-const ProductCard = (props: { item: ProductType }) => {
-	const { item } = props
+type ProductCardPropType = {
+	item: ProductType
+	setData: (data: MainDataType) => void
+}
 
-	const [editMode, setEditMode] = useState<boolean>(false)
+const ProductCard = (props: ProductCardPropType) => {
+	const { item, setData } = props
+
+	const [dialogOpen, setDialogOpen] = useState<boolean>(false)
 
 	return (
-		<div key={item.name}>
+		<div>
 			<div className='flex items-center justify-between'>
 				<h3 className='mb-2 text-lg font-medium text-zinc-700 md:text-xl'>
 					{item.name}
 				</h3>
-				{editMode ? (
-					<SaveButton action={() => setEditMode(false)} />
-				) : (
-					<EditButton action={() => setEditMode(true)} />
-				)}
+				<Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+					<DialogTrigger onClick={() => setDialogOpen(true)}>
+						<TbEdit className='h-6 w-6 cursor-pointer text-zinc-600' />
+					</DialogTrigger>
+					<ProductDialog
+						item={item}
+						setData={setData}
+						setDialogOpen={setDialogOpen}
+					/>
+				</Dialog>
 			</div>
 			<div className='relative'>
 				<textarea
@@ -29,6 +40,7 @@ const ProductCard = (props: { item: ProductType }) => {
 					className='w-full resize-none rounded-lg border border-zinc-300 p-4 text-sm text-zinc-600 outline-none'
 					placeholder='Example here .....'
 					value={item.desc}
+					readOnly
 				></textarea>
 				<p className='absolute bottom-4 right-4 font-semibold text-zinc-600'>
 					{item.currency} {item.price}

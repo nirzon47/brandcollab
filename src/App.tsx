@@ -26,7 +26,7 @@ const App = () => {
 				<ProfileHeader profile={data.profile} setData={setData} />
 				<About desc={data.about} setData={setData} />
 				<Collaborates data={data.collaborates} setData={setData} />
-				<StartCollab products={data.products} />
+				<StartCollab products={data.products} setData={setData} />
 				<Testimonials testimonials={data.testimonials} />
 			</div>
 		</div>
