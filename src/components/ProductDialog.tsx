@@ -59,7 +59,10 @@ const ProductDialog = (props: ProductDialogPropType) => {
 				<h4 className='text-lg font-medium'>Edit Product</h4>
 			</DialogTitle>
 			<DialogDescription>
-				<label htmlFor='product-name' className='flex flex-col gap-1 text-xs'>
+				<label
+					htmlFor='product-name'
+					className='mb-3 flex flex-col gap-1 text-xs'
+				>
 					Product Name
 					<input
 						className='rounded-md border px-2 py-1 text-base outline-none'
@@ -72,7 +75,7 @@ const ProductDialog = (props: ProductDialogPropType) => {
 				</label>
 				<label
 					htmlFor='product-description'
-					className='flex flex-col gap-1 text-xs'
+					className='mb-3 flex flex-col gap-1 text-xs'
 				>
 					Product Description
 					<textarea
@@ -84,7 +87,10 @@ const ProductDialog = (props: ProductDialogPropType) => {
 						onChange={(e) => setProductDesc(e.target.value)}
 					></textarea>
 				</label>
-				<label htmlFor='product-price' className='flex flex-col gap-1 text-xs'>
+				<label
+					htmlFor='product-price'
+					className='mb-3 flex flex-col gap-1 text-xs'
+				>
 					Product Price
 					<input
 						className='rounded-md border px-2 py-1 text-base outline-none'
@@ -97,7 +103,7 @@ const ProductDialog = (props: ProductDialogPropType) => {
 				</label>
 				<label
 					htmlFor='product-currency'
-					className='flex flex-col gap-1 text-xs'
+					className='mb-3 flex flex-col gap-1 text-xs'
 				>
 					Product Currency
 					<input
