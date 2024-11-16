@@ -27,7 +27,7 @@ const App = () => {
 				<About desc={data.about} setData={setData} />
 				<Collaborates data={data.collaborates} setData={setData} />
 				<StartCollab products={data.products} setData={setData} />
-				<Testimonials testimonials={data.testimonials} />
+				<Testimonials testimonials={data.testimonials} setData={setData} />
 			</div>
 		</div>
 	)
