@@ -6,6 +6,7 @@ export type ProfileType = {
 }
 
 export type ProductType = {
+	id: number
 	name: string
 	price: number
 	currency: string

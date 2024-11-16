@@ -10,12 +10,14 @@ export const initialData = {
 	collaborates: ['Coco cola'],
 	products: [
 		{
+			id: 1,
 			name: 'Product #1',
 			price: 350,
 			currency: 'USD',
 			desc: '',
 		},
 		{
+			id: 2,
 			name: 'Product #2',
 			price: 350,
 			currency: 'USD',
