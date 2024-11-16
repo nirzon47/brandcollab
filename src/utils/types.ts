@@ -14,6 +14,7 @@ export type ProductType = {
 }
 
 export type TestimonialType = {
+	id: number
 	name: string
 	company: string
 	desc: string

@@ -26,6 +26,7 @@ export const initialData = {
 	],
 	testimonials: [
 		{
+			id: 1,
 			name: 'John smith',
 			company: 'Company',
 			desc: "Working with Jennifer was the best experience possible for us. We've had over 150 B2B partners come from her audience, and likely so many more influenced by her! Seriously, the best ROI we've seen.",
